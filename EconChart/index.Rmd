@@ -1,0 +1,75 @@
+---
+title       : EconChart
+subtitle    : A Charting Application for Economic Indicator Data
+author      : WayofPeace
+job         : Peace Inc
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Motivation
+
+
+
+Analysts need a quick tool to plot economic indicator data
+
+The Federal Reserve Bank of St. Louis maintains a data repository of economic indicators called FRED
+
+The EconChart Application connects the data from FRED with R to generate a time series chart quickly and easily
+
+The key piece of R code for this application is based on the quantmod library.
+For example, the code below fetches the unemployment rate:
+
+```{r}
+  library(quantmod)
+  getData<-getSymbols("UNRATE", src = "FRED",auto.assign = FALSE)
+```
+
+--- .class #id 
+
+## Basic User's Guide
+
+
+
+Users can access the application at https://wayofpeace.shinyapps.io/econChart/
+
+On the left hand panel, the user enters a mnemonic referring to an economic time series in the Symbol textbox
+	UNRATE refers to the US civilian unemployment rate
+	GDP refers to the US gross domestic product in nominal terms
+	A complete list of mnemonics is available at the FRED website https://research.stlouisfed.org/fred2/
+
+The user can restrict the date range of the displayed series by selecting the start and end dates in the Date range drop down menus
+
+--- .class #id 
+
+## Expanded options
+
+
+
+Two checkboxes provide additional options
+
+"Plot y axis on log scale" transforms the displayed series to a logarithmic scale
+
+"Compute Year over Year Pct Change" transforms the displayed series to a year over year percentage rate
+  1. The application detects whether the economic indicator is provided annually, monthly or quarterly
+  2. The percentage change is particularly useful for series measured in levels such as the GDP
+
+--- .class #id 
+
+## Future enhancements
+
+
+
+At present, the application provides a basic chart of the selected time series
+
+A future version may allow the user greater flexibility in controlling how the plot is displayed
+	Users will be able to control colors and labels
+	
+A future version will add a catalog for selecting economic indicators directory from a list
+
+A future version will allow users to save or export the data for future analysis
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EconChart</title>
+  <meta charset="utf-8">
+  <meta name="description" content="EconChart">
+  <meta name="author" content="WayofPeace">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>EconChart</h1>
+    <h2>A Charting Application for Economic Indicator Data</h2>
+    <p>WayofPeace<br/>Peace Inc</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Motivation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Analysts need a quick tool to plot economic indicator data</p>
+
+<p>The Federal Reserve Bank of St. Louis maintains a data repository of economic indicators called FRED</p>
+
+<p>The EconChart Application connects the data from FRED with R to generate a time series chart quickly and easily</p>
+
+<p>The key piece of R code for this application is based on the quantmod library.
+For example, the code below fetches the unemployment rate:</p>
+
+<pre><code class="r">  library(quantmod)
+  getData&lt;-getSymbols(&quot;UNRATE&quot;, src = &quot;FRED&quot;,auto.assign = FALSE)
+</code></pre>
+
+<pre><code>## Warning in download.file(paste(FRED.URL, &quot;/&quot;, Symbols[[i]], &quot;/&quot;,
+## &quot;downloaddata/&quot;, : downloaded length 12919 != reported length 200
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Basic User&#39;s Guide</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Users can access the application at <a href="https://wayofpeace.shinyapps.io/econChart/">https://wayofpeace.shinyapps.io/econChart/</a></p>
+
+<p>On the left hand panel, the user enters a mnemonic referring to an economic time series in the Symbol textbox
+    UNRATE refers to the US civilian unemployment rate
+    GDP refers to the US gross domestic product in nominal terms
+    A complete list of mnemonics is available at the FRED website <a href="https://research.stlouisfed.org/fred2/">https://research.stlouisfed.org/fred2/</a></p>
+
+<p>The user can restrict the date range of the displayed series by selecting the start and end dates in the Date range drop down menus</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Expanded options</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Two checkboxes provide additional options</p>
+
+<p>&quot;Plot y axis on log scale&quot; transforms the displayed series to a logarithmic scale</p>
+
+<p>&quot;Compute Year over Year Pct Change&quot; transforms the displayed series to a year over year percentage rate</p>
+
+<ol>
+<li>The application detects whether the economic indicator is provided annually, monthly or quarterly</li>
+<li>The percentage change is particularly useful for series measured in levels such as the GDP</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Future enhancements</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>At present, the application provides a basic chart of the selected time series</p>
+
+<p>A future version may allow the user greater flexibility in controlling how the plot is displayed
+    Users will be able to control colors and labels</p>
+
+<p>A future version will add a catalog for selecting economic indicators directory from a list</p>
+
+<p>A future version will allow users to save or export the data for future analysis</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Motivation'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Basic User&#39;s Guide'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Expanded options'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Future enhancements'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
