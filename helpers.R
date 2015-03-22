@@ -1,6 +1,8 @@
-
-# adjusts  
-# values provided by the Federal Reserve of St. Louis
+# helpers.R contains functions to support the EconChart applications
+# it contains functions to adjust values provided by the Federal Reserve of St. Louis
+# it detects the periodicity of the economic indicator selected (i.e. monthly, quarterly or annual)
+# using the correct periodicity it computes the year over year percentage change in the indicator
+# the adjust function returns the year over year percentage change for the selected date range
 
 adjust<-function(input) { 
   datalladj<-getSymbols(toupper(input$symb), src = "FRED", 
