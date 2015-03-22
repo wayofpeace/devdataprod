@@ -1,3 +1,9 @@
+# ui.R for EconChart app
+# this code sets up the layout for the EconChart app
+# it creates a textbox in which the user can type a mnemonic for an economic indicator
+# it sets up drop down menus for date ranges for the display of the economic indicator on a plot
+# it sets up two checkboxes for options to plot using hte logarithmic scale and as a year over percent change
+
 library(shiny)
 
 shinyUI(fluidPage(
